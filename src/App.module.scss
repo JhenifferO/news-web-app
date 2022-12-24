@@ -1,0 +1,221 @@
+/*breakpoints*/
+$mobile: 425px;
+$tablet: 768px;
+$desktop_xsm: 980px;
+$desktop_sm: 1080px;
+$desktop_md: 1280px;
+
+/*colors*/
+$softOrange: rgba(233, 176, 83, 1);
+$softRed: rgba(241, 94, 80, 1);
+$offwhite: rgba(255, 253, 250, 1);
+$lightGray: rgba(197, 198, 206, 1);
+$darkGray: rgba(93, 95, 121, 1);
+$darkBlue: rgba(0, 0, 26, 1);
+
+
+/*functions*/
+@mixin flexBox($flex_direction, $justify_content, $align_items) {
+    display: flex;
+    flex-direction: $flex_direction;
+    justify-content: $justify_content;
+    align-items: $align_items;
+}
+
+.page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+
+    main {
+        max-width: 1160px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-row: 1fr 1fr 1fr;
+        grid-template-areas:
+        'header header header'
+        'content content content'
+        'techArea techArea techArea';
+        gap: 2rem;
+
+        @media only screen and (max-width: 767px) and (min-width: 320px) {
+            max-width: 425px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-row: 1fr 1fr 1fr;
+            grid-template-areas:
+            'header'
+            'content'
+            'techArea';
+        }
+        @media only screen and (max-width: 1200px) and (min-width: 768px) {
+            max-width: 700px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .content {
+            width: 100%;
+            height: fit-content;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-row: 1fr 1fr;
+            padding: 4rem 0;
+            grid-template-areas:
+                'banner banner news'
+                'reading reading news';
+            gap: 2rem;
+            grid-area: content;
+
+            @media only screen and (max-width: 767px) and (min-width: 320px) {
+                max-width: 320px;
+                display: flex;
+                flex-direction: column;
+            }
+            @media only screen and (max-width: 1200px) and (min-width: 768px) {
+                max-width: 700px;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .banners {
+                background-color: red;
+                width: 80rem;
+                height: 30rem;
+                grid-area: banner;
+
+                @media only screen and (max-width: 767px) and (min-width: 320px) {
+                    max-width: 300px;
+                    grid-template-columns: 1fr;
+                }
+                @media only screen and (max-width: 1200px) and (min-width: 768px) {
+                    width: 40rem;
+                    height: 20rem;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .reading {
+                display: grid;
+                grid-area: reading;
+                grid-template-columns: 40rem 40rem;
+
+                // margin-top: 2rem;
+                @media only screen and (max-width: 767px) and (min-width: 320px) {
+                    max-width: 700px;
+                    grid-template-columns: 1fr 1fr;
+                }
+                @media only screen and (max-width: 1200px) and (min-width: 768px) {
+                    display: flex;
+                    flex-direction: column;
+                }
+                h1 {
+                    color: $darkBlue;
+                    font-weight: 800;
+                    font-size: 5.5rem;
+                    line-height: 5.5rem;
+
+                    @media only screen and (max-width: 767px) and (min-width: 320px) {
+                        max-width: 700px;
+                        grid-template-columns: 1fr 1fr;
+                    }
+                    @media only screen and (max-width: 1200px) and (min-width: 768px) {
+                        font-size: 4rem;
+                        line-height: 5rem;
+                    }
+                }
+
+                .text {
+                    @include flexBox(column, space-between, start);
+                    margin-left: 1rem;
+                    
+                    p {
+                        font-size: 1.5rem;
+                        color: $darkGray;
+                        line-height: 2.5rem;
+                    }
+
+                    a {
+                        display: block;
+                        color: $offwhite;
+                        background-color: $darkBlue;
+                        padding: 1rem 2rem;
+                        font-size: 1.5rem;
+                        width: fit-content;
+
+                        @media only screen and (max-width: 767px) and (min-width: 320px) {
+                            max-width: 700px;
+                            grid-template-columns: 1fr 1fr;
+                        }
+                        @media only screen and (max-width: 1200px) and (min-width: 768px) {
+                            margin-top: 2rem;
+                        }
+
+                        &:hover {
+                            background-color: $softRed;
+                        }
+                    }
+
+                    @media only screen and (max-width: 767px) and (min-width: 320px) {
+                        max-width: 700px;
+                        grid-template-columns: 1fr 1fr;
+                    }
+                    @media only screen and (max-width: 1200px) and (min-width: 768px) {
+                        margin-left: 0;
+                    }
+                }
+                
+            }
+
+            .news {
+                @include flexBox(column, space-between, start);
+                grid-area: news;
+                background-color: $darkBlue;
+
+                padding: 2rem;
+
+                h2 {
+                    font-size: 4rem;
+                    color: $softOrange;
+                }
+
+                .newBox {
+                    h4 {
+                        color: $offwhite;
+                        font-size: 1.6rem;
+                        margin-bottom: 1rem;
+
+                        &:hover {
+                            color: $softOrange;
+                        }
+                    }
+
+                    p {
+                        font-size: 1.4rem;
+                        color: $lightGray;
+                        line-height: 2rem;
+                    }
+
+                    .line {
+                        width: 100%;
+                        height: 0.5px;
+                        background-color: $lightGray;
+                        margin: 3rem 0 3rem 0;
+                    }
+                }
+            }
+
+        
+        }
+        .techAreaContainer {
+            grid-area: techArea;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+
+}
