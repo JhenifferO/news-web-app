@@ -1,23 +1,34 @@
 import style from './App.module.scss';
 import banner from './assets/banner-desktop.jpg'
+import bannerMobile from './assets/banner-mobile.jpg'
 import img1 from './assets/image-retro-pcs.jpg'
 import img2 from './assets/image-top-laptops.jpg'
 import img3 from './assets/image-gaming-growth.jpg'
 import Header from './components/Header';
 import TechArea from './components/TechArea';
+import { useState } from 'react';
+import MenuMobile from './components/MenuMobile';
 
 
 function App() {
+
+  const [menuIsVisible, setMenuIsVisible] = useState('')
+
   return (
     <section className={style.page}>
       <main>
+        {/* <MenuMobile
+          menuIsVisible={menuIsVisible}
+          setMenuIsVisible={setMenuIsVisible}
+        /> */}
         <Header />
 
         <section className={style.content}>
-          <div className={style.banners}><img src={banner} /></div>
+          {/* <div className={style.banners}><img src={banner} /></div> */}
+          <div className={style.banners}><img src={bannerMobile} /></div>
 
           <div className={style.reading}>
-            <h1>The Bright Future of <br></br>Web 3.0?</h1>
+            <h1>The Bright <br></br> Future of Web 3.0?</h1>
             <div className={style.text}>
               <p>We dive into the next evolution od the web that claims to put the power of the plataforms back into the hands od the people. But is it really fulfilling its promise?</p>
               <a href="#">Read More</a>

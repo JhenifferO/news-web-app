@@ -23,24 +23,35 @@ $darkBlue: rgba(0, 0, 26, 1);
     align-items: $align_items;
 }
 
-header{
-    @include flexBox(row, space-between, center);
-    grid-area: header;
-    width: 100%;
-    ul {
-        @include flexBox(row, space-between, center);
-        width: 50rem;
-        li {
-            a {
-                font-size: 1.6rem;
-                color: $darkGray;
-                &:hover {
-                    color: $softRed;
-                  }
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    li {
+        display: none;
+        padding: 0.5rem;
+        @media screen and (min-width: 768px){
+            display: inline-block;
+        }
+        a {
+            color: $darkGray;
+            &:hover {
+                color: $softRed;
             }
         }
     }
-    
 }
 
+header ul li:nth-child(6) {
+    display: none;
+    @media screen and (max-width: 767px){
+        display: block;
+    }
+}
 
+.headerMobile {
+    display: flex;
+    background-color: aquamarine;
+    
+
+}

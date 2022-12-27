@@ -24,39 +24,30 @@ $darkBlue: rgba(0, 0, 26, 1);
 
 .box {
     display: flex;
-    width: 340px;
-    
-    .imageBox {
-        width: 12rem;
-        height: 12rem;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
+    margin-bottom: 1rem;
+    @media only screen and (min-width: 1024px) {
+        margin-left: 10px;
     }
-
+    .imageBox img {
+        width: 120px;
+        height: 100%;
+    }
     .contentBox {
-        margin-left: 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-
+        padding-left: 0.8rem;
+        
         h2 {
-            font-size: 2.5rem;
-            color: $darkGray;
+            color: $lightGray;
+            font-size: 1.8rem;
         }
-
         h4 {
-            font-size: 1.5rem;
             color: $darkBlue;
         }
-
         p {
+            font-size: 0.9rem;
+            padding: 1rem 0;
             color: $darkGray;
-            font-size: 1.2rem;
         }
     }
 }
-
-
