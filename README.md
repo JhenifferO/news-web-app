@@ -2,3 +2,5 @@
 
 - Estilização SCSS
 - Responsividade Mobile First
+- Hooks -> useState
+
