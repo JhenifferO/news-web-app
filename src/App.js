@@ -7,24 +7,21 @@ import img3 from './assets/image-gaming-growth.jpg'
 import Header from './components/Header';
 import TechArea from './components/TechArea';
 import { useState } from 'react';
-import MenuMobile from './components/MenuMobile';
+
 
 
 function App() {
 
-  const [menuIsVisible, setMenuIsVisible] = useState('')
+  const [menuIsVisible, setMenuIsVisible] = useState(false)
 
   return (
     <section className={style.page}>
       <main>
-        {/* <MenuMobile
-          menuIsVisible={menuIsVisible}
-          setMenuIsVisible={setMenuIsVisible}
-        /> */}
+
         <Header />
 
         <section className={style.content}>
-          {/* <div className={style.banners}><img src={banner} /></div> */}
+          
           <div className={style.banners}><img src={bannerMobile} /></div>
 
           <div className={style.reading}>
